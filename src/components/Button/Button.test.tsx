@@ -4,8 +4,6 @@ import { Button } from "./index";
 describe("Button", () => {
   it("should render the heading", async () => {
     render(<Button />);
-    expect(
-      screen.getByRole("heading", { name: /Button/i })
-    ).toBeInTheDocument();
+    expect(screen.getByText(/Button/i)).toBeInTheDocument();
   });
 });
