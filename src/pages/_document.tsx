@@ -37,7 +37,15 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="pt-br">
-        <Head />
+        <Head>
+          <link rel="shortcut icon" href="/img/icon-512.png" />
+          <link rel="apple-touch-icon" href="/img/icon-512.png" />
+          <link rel="manifest" href="/manifest.json" />
+          <meta
+            name="description"
+            content="A simple project startter to work with TypeScript, React, NextJS and Styled Components"
+          />
+        </Head>
         <body>
           <Main />
           <NextScript />
