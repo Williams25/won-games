@@ -34,6 +34,14 @@ describe("Button", () => {
     });
   });
 
+  it("should render the fullWidth size", () => {
+    renderWithTheme(<Button fullWidth>Buy now</Button>);
+
+    expect(screen.getByRole("button", { name: /Buy now/ })).toHaveStyle({
+      width: "100%"
+    });
+  });
+
   it("should darken the color with the focus", () => {
     renderWithTheme(<Button>Buy now</Button>);
 
