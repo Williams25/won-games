@@ -1,7 +1,7 @@
 import styled, { css, DefaultTheme } from "styled-components";
 import { ButtonProps } from ".";
 
-type WrapperProps = Pick<ButtonProps, "size">;
+type WrapperProps = Pick<ButtonProps, "size" | "fullWidth">;
 
 const buttonModifiers = {
   small: (theme: DefaultTheme) => css`
@@ -18,11 +18,14 @@ const buttonModifiers = {
     padding: ${theme.spacings.xxsmall} ${theme.spacings.medium};
     height: 4rem;
     font-size: ${theme.font.sizes.small};
-  `
+  `,
+  fullWidth: {
+    width: "100%"
+  }
 };
 
 export const Button = styled.button<WrapperProps>`
-  ${({ theme, size }) => css`
+  ${({ theme, size, fullWidth }) => css`
     background: linear-gradient(180deg, #ff5f5f 0%, #f062c0 50%);
     color: ${theme.colors.white};
     border: 0;
@@ -37,5 +40,6 @@ export const Button = styled.button<WrapperProps>`
     }
 
     ${!!size && buttonModifiers[size](theme)}
+    ${!!fullWidth && buttonModifiers.fullWidth}
   `}
 `;
