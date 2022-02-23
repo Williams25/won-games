@@ -17,7 +17,7 @@ const wrapperModifiers = {
       left: 0;
       content: "";
       width: 5rem;
-      border-bottom: 0.5rem solid ${theme.colors.secondary};
+      border-bottom: 0.5rem solid ${theme.colors.primary};
     }
   `
 };
