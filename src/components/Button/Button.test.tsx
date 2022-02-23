@@ -2,6 +2,7 @@ import "jest-styled-components";
 import { screen } from "@testing-library/react";
 import { Button } from "./index";
 import { renderWithTheme } from "utils/tests/helpers";
+import { AddShoppingCart } from "@styled-icons/material-rounded/AddShoppingCart";
 
 describe("Button", () => {
   it("should render the medium size by default", () => {
@@ -35,9 +36,9 @@ describe("Button", () => {
   });
 
   it("should render the fullWidth size", () => {
-    renderWithTheme(<Button fullWidth>Buy now</Button>);
+    renderWithTheme(<Button fullWidth={true}>Buy now</Button>);
 
-    expect(screen.getByRole("button", { name: /Buy now/ })).toHaveStyle({
+    expect(screen.getByRole("button", { name: /Buy now/i })).toHaveStyle({
       width: "100%"
     });
   });
@@ -45,12 +46,23 @@ describe("Button", () => {
   it("should darken the color with the focus", () => {
     renderWithTheme(<Button>Buy now</Button>);
 
-    expect(screen.getByRole("button", { name: /Buy now/ })).toHaveStyleRule(
+    expect(screen.getByRole("button", { name: /Buy now/i })).toHaveStyleRule(
       "filter",
       "brightness(0.9)",
       {
         modifier: ":hover"
       }
     );
+  });
+
+  it("should render an icon version", () => {
+    renderWithTheme(
+      <Button fullWidth icon={<AddShoppingCart data-testid="icon" />}>
+        Buy now
+      </Button>
+    );
+
+    expect(screen.getByText(/Buy now/i)).toBeInTheDocument();
+    expect(screen.getByTestId(/icon/i)).toBeInTheDocument();
   });
 });
