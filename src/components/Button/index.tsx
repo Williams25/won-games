@@ -4,10 +4,17 @@ import * as S from "./styles";
 export type ButtonProps = {
   children?: ReactNode;
   size?: "large" | "small" | "medium";
+  fullWidth?: boolean;
 };
 
-export const Button = ({ children, size = "medium" }: ButtonProps) => {
+export const Button = ({
+  children,
+  size = "medium",
+  fullWidth = false
+}: ButtonProps) => {
   return (
-    <S.Button size={size}>{!!children && <span>{children}</span>}</S.Button>
+    <S.Button size={size} fullWidth={fullWidth}>
+      {!!children && <span>{children}</span>}
+    </S.Button>
   );
 };
