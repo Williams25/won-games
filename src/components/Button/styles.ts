@@ -5,18 +5,19 @@ type WrapperProps = Pick<ButtonProps, "size">;
 
 const buttonModifiers = {
   small: (theme: DefaultTheme) => css`
+    padding: ${theme.spacings.xxsmall};
     height: 3rem;
     font-size: ${theme.font.sizes.xsmall};
   `,
   large: (theme: DefaultTheme) => css`
     padding: ${theme.spacings.xxsmall} ${theme.spacings.xlarge};
-    height: 4rem;
-    font-size: ${theme.font.sizes.small};
+    height: 5rem;
+    font-size: ${theme.font.sizes.medium};
   `,
   medium: (theme: DefaultTheme) => css`
     padding: ${theme.spacings.xxsmall} ${theme.spacings.medium};
-    height: 5rem;
-    font-size: ${theme.font.sizes.medium};
+    height: 4rem;
+    font-size: ${theme.font.sizes.small};
   `
 };
 
