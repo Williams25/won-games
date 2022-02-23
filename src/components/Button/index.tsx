@@ -5,15 +5,18 @@ export type ButtonProps = {
   children?: ReactNode;
   size?: "large" | "small" | "medium";
   fullWidth?: boolean;
+  icon?: ReactNode;
 };
 
 export const Button = ({
   children,
   size = "medium",
-  fullWidth = false
+  fullWidth = false,
+  icon
 }: ButtonProps) => {
   return (
-    <S.Button size={size} fullWidth={fullWidth}>
+    <S.Button size={size} fullWidth={fullWidth} hasIcon={!!icon}>
+      {!!icon && icon}
       {!!children && <span>{children}</span>}
     </S.Button>
   );
