@@ -3,7 +3,14 @@ import { Menu } from "./index";
 
 export default {
   title: "Menu",
-  component: Menu,
+  component: Menu
 } as Meta;
 
 export const Basic: Story = (args) => <Menu {...args} />;
+
+Basic.parameters = {
+  layout: "fullscreen",
+  backgrounds: {
+    default: "dark"
+  }
+};
