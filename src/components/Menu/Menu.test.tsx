@@ -47,8 +47,8 @@ describe("Menu", () => {
   it("should show My account and Wishlist when logged in", () => {
     renderWithTheme(<Menu userName="teste" />);
 
-    expect(screen.getByText(/My account/gi)).toBeInTheDocument();
-    expect(screen.getByText(/Wishlist/gi)).toBeInTheDocument();
+    expect(screen.getAllByText(/My account/gi)[0]).toBeInTheDocument();
+    expect(screen.getAllByText(/Wishlist/gi)[0]).toBeInTheDocument();
 
     expect(screen.queryByText(/Log in now/gi)).not.toBeInTheDocument();
     expect(screen.queryByText(/Sign Up/gi)).not.toBeInTheDocument();
