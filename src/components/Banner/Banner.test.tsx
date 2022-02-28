@@ -1,0 +1,23 @@
+import { screen } from "@testing-library/react";
+import { renderWithTheme } from "utils/tests/helpers";
+import { Banner } from "./index";
+
+const props = {
+  img: "https://source.unsplash.com/user/willianjusten/1042x580",
+  title: "Defy death",
+  subtitle: "<p>Play the new <strong>CrashLands</strong> season",
+  buttonLabel: "Buy now",
+  buttonLink: "/games/defy-death"
+};
+
+describe("Banner", () => {
+  it("should render the banner", async () => {
+    renderWithTheme(<Banner {...props} />);
+
+    expect(
+      screen.getByRole("heading", { name: /Defy death/gi })
+    ).toBeInTheDocument();
+    expect(screen.getByText(/Play the/gi)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Defy death/gi)).toBeInTheDocument();
+  });
+});
