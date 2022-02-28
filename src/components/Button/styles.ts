@@ -25,10 +25,6 @@ const buttonModifiers = {
     width: 100%;
   `,
   withIcon: (theme: DefaultTheme) => css`
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
     svg,
     img {
       width: 1.8rem;
@@ -41,6 +37,9 @@ const buttonModifiers = {
 
 export const Button = styled.button<WrapperProps>`
   ${({ theme, size, fullWidth, hasIcon }) => css`
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background: linear-gradient(180deg, #ff5f5f 0%, #f062c0 50%);
     color: ${theme.colors.white};
     border: 0;
@@ -49,6 +48,7 @@ export const Button = styled.button<WrapperProps>`
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     transition-delay: 0.1s;
+    text-decoration: none;
 
     &:hover {
       filter: brightness(0.9);
