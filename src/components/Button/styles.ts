@@ -47,11 +47,12 @@ export const Button = styled.button<WrapperProps>`
     border-radius: ${theme.border.radius};
     padding: ${theme.spacings.xxsmall};
     cursor: pointer;
-    transition: filter 0.5s;
+    transition: all 0.3s ease-in-out;
     transition-delay: 0.1s;
 
     &:hover {
       filter: brightness(0.9);
+      background: linear-gradient(180deg, #e35565 0%, #d958a6 50%);
     }
 
     ${!!size && buttonModifiers[size](theme)}

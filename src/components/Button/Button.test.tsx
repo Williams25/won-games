@@ -67,4 +67,22 @@ describe("Button", () => {
     expect(screen.getByText(/Buy now/i)).toBeInTheDocument();
     expect(screen.getByTestId(/icon/i)).toBeInTheDocument();
   });
+
+  it("should render buntton as a link", () => {
+    renderWithTheme(
+      <Button
+        as="a"
+        href="/"
+        fullWidth
+        icon={<AddShoppingCart data-testid="icon" />}
+      >
+        Buy now
+      </Button>
+    );
+
+    expect(screen.getByRole("link", { name: /Buy now/gi })).toHaveAttribute(
+      "href",
+      "/"
+    );
+  });
 });

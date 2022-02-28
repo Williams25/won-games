@@ -8,8 +8,8 @@ exports[`Button should render the medium size by default 1`] = `
   border-radius: 0.4rem;
   padding: 0.8rem;
   cursor: pointer;
-  -webkit-transition: filter 0.5s;
-  transition: filter 0.5s;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   -webkit-transition-delay: 0.1s;
   transition-delay: 0.1s;
   padding: 0.8rem 3.2rem;
@@ -20,6 +20,7 @@ exports[`Button should render the medium size by default 1`] = `
 .c0:hover {
   -webkit-filter: brightness(0.9);
   filter: brightness(0.9);
+  background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
 }
 
 <button
