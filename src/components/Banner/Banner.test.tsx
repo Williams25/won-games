@@ -17,7 +17,11 @@ describe("Banner", () => {
     expect(
       screen.getByRole("heading", { name: /Defy death/gi })
     ).toBeInTheDocument();
-    expect(screen.getByText(/Play the/gi)).toBeInTheDocument();
-    expect(screen.getByLabelText(/Defy death/gi)).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /Play the/gi })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("img", { name: /Defy death/gi })
+    ).toBeInTheDocument();
   });
 });
