@@ -12,7 +12,7 @@ const props = {
 
 describe("Banner", () => {
   it("should render the banner", async () => {
-    renderWithTheme(<Banner {...props} />);
+    const { container } = renderWithTheme(<Banner {...props} />);
 
     expect(
       screen.getByRole("heading", { name: /Defy death/gi })
@@ -23,5 +23,6 @@ describe("Banner", () => {
     expect(
       screen.getByRole("img", { name: /Defy death/gi })
     ).toBeInTheDocument();
+    expect(container.firstChild).toMatchSnapshot();
   });
 });
