@@ -1,6 +1,7 @@
 import { screen } from "@testing-library/react";
 import { renderWithTheme } from "utils/tests/helpers";
 import { Highlight } from "./index";
+import * as S from "./styles";
 
 const props = {
   title: "Heading 1",
@@ -12,7 +13,7 @@ const props = {
 
 describe("Highlight", () => {
   it("should render the heading", async () => {
-    renderWithTheme(<Highlight {...props} />);
+    const { container } = renderWithTheme(<Highlight {...props} />);
 
     expect(
       screen.getByRole("heading", { name: /Heading 1/i })
@@ -23,6 +24,8 @@ describe("Highlight", () => {
     ).toBeInTheDocument();
 
     expect(screen.getByRole("link", { name: /Buy now/gi })).toBeInTheDocument();
+
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it("should render background image", () => {
@@ -50,5 +53,49 @@ describe("Highlight", () => {
       "src",
       "/img/red-dead-float.png"
     );
+  });
+
+  it("should render align right by default", () => {
+    const { container } = renderWithTheme(
+      <Highlight {...props} floatImage="/img/red-dead-float.png" />
+    );
+
+    expect(container.firstChild).toHaveStyleRule(
+      "grid-template-areas",
+      // eslint-disable-next-line no-useless-escape
+      `\"floatimage content\"`
+    );
+
+    expect(container.firstChild).toHaveStyleRule("text-align", "right", {
+      modifier: `${S.Content}`
+    });
+
+    expect(container.firstChild).toHaveStyleRule("justify-self", "start", {
+      modifier: `${S.FloatImage}`
+    });
+  });
+
+  it("should render align left", () => {
+    const { container } = renderWithTheme(
+      <Highlight
+        {...props}
+        alignment="left"
+        floatImage="/img/red-dead-float.png"
+      />
+    );
+
+    expect(container.firstChild).toHaveStyleRule(
+      "grid-template-areas",
+      // eslint-disable-next-line no-useless-escape
+      `\"content floatimage\"`
+    );
+
+    expect(container.firstChild).toHaveStyleRule("text-align", "left", {
+      modifier: `${S.Content}`
+    });
+
+    expect(container.firstChild).toHaveStyleRule("justify-self", "end", {
+      modifier: `${S.FloatImage}`
+    });
   });
 });
