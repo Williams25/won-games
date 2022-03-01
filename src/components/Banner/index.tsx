@@ -20,8 +20,8 @@ export const Banner = ({
   buttonLabel,
   buttonLink,
   ribbon,
-  ribbonColor,
-  ribbonSize
+  ribbonColor = "primary",
+  ribbonSize = "normal"
 }: BannerProps) => {
   return (
     <S.Banner>
