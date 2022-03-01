@@ -25,4 +25,76 @@ describe("Banner", () => {
     ).toBeInTheDocument();
     expect(container.firstChild).toMatchSnapshot();
   });
+
+  it("should render a ribbon the normal size and color primary", () => {
+    renderWithTheme(
+      <Banner
+        {...props}
+        ribbon="Ribbon"
+        ribbonColor="primary"
+        ribbonSize="normal"
+      />
+    );
+
+    expect(screen.getByText(/Ribbon/gi)).toBeInTheDocument();
+    expect(screen.getByText(/Ribbon/gi)).toHaveStyle({
+      height: "3.6rem",
+      "font-size": "1.4rem",
+      "background-color": "#f231a5"
+    });
+  });
+
+  it("should render a ribbon the normal size and color secondary", () => {
+    renderWithTheme(
+      <Banner
+        {...props}
+        ribbon="Ribbon"
+        ribbonColor="secondary"
+        ribbonSize="normal"
+      />
+    );
+
+    expect(screen.getByText(/Ribbon/gi)).toBeInTheDocument();
+    expect(screen.getByText(/Ribbon/gi)).toHaveStyle({
+      height: "3.6rem",
+      "font-size": "1.4rem",
+      "background-color": "#3cd3c1"
+    });
+  });
+
+  it("should render a ribbon the small size and color primary", () => {
+    renderWithTheme(
+      <Banner
+        {...props}
+        ribbon="Ribbon"
+        ribbonColor="primary"
+        ribbonSize="small"
+      />
+    );
+
+    expect(screen.getByText(/Ribbon/gi)).toBeInTheDocument();
+    expect(screen.getByText(/Ribbon/gi)).toHaveStyle({
+      height: "2.6rem",
+      "font-size": "1.2rem",
+      "background-color": "#f231a5"
+    });
+  });
+
+  it("should render a ribbon the small size and color secondary", () => {
+    renderWithTheme(
+      <Banner
+        {...props}
+        ribbon="Ribbon"
+        ribbonColor="secondary"
+        ribbonSize="small"
+      />
+    );
+
+    expect(screen.getByText(/Ribbon/gi)).toBeInTheDocument();
+    expect(screen.getByText(/Ribbon/gi)).toHaveStyle({
+      height: "2.6rem",
+      "font-size": "1.2rem",
+      "background-color": "#3cd3c1"
+    });
+  });
 });
