@@ -7,6 +7,7 @@ export type HighlightProps = {
   buttonLabel: string;
   buttonLink: string;
   backgroundImage: string;
+  floatImage?: string;
 };
 
 export const Highlight = ({
@@ -14,10 +15,12 @@ export const Highlight = ({
   title,
   buttonLabel,
   buttonLink,
-  backgroundImage
+  backgroundImage,
+  floatImage
 }: HighlightProps) => {
   return (
     <S.Highlight backgroundImage={backgroundImage}>
+      {!!floatImage && <S.FloatImage src={floatImage} alt={title} />}
       <S.Content>
         <S.Title>{title}</S.Title>
         <S.SubTitle>{subTitle}</S.SubTitle>
