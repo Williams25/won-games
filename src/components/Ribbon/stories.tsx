@@ -11,7 +11,18 @@ export default {
   }
 } as Meta;
 
-export const Basic: Story<RibbonProps> = (args) => <Ribbon {...args} />;
+export const Basic: Story<RibbonProps> = (args) => (
+  <div
+    style={{
+      width: 300,
+      height: 300,
+      position: "relative",
+      background: "#c3c3c3"
+    }}
+  >
+    <Ribbon {...args} />
+  </div>
+);
 Basic.args = {
   children: "Buy now",
   color: "primary"
