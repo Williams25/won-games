@@ -11,13 +11,20 @@ export type GameCardProps = {
   developer: string;
   img: string;
   price: string;
+  promotionalPrice?: string;
 };
 
-export const GameCard = ({ developer, img, price, title }: GameCardProps) => {
+export const GameCard = ({
+  developer,
+  img,
+  price,
+  title,
+  promotionalPrice
+}: GameCardProps) => {
   return (
     <S.GameCard>
       <S.ImageBox>
-        <img src={img} alt={title} width={400} height={254} />
+        <img src={img} alt={title} />
       </S.ImageBox>
 
       <S.Content>
@@ -31,7 +38,8 @@ export const GameCard = ({ developer, img, price, title }: GameCardProps) => {
         </S.FavButton>
 
         <S.BuyBox>
-          <S.Price>{price}</S.Price>
+          {!!promotionalPrice && <S.Price isPromotional>{price}</S.Price>}
+          <S.Price>{promotionalPrice || price}</S.Price>
           <Button icon={<AddShoppingCart />} size="small" />
         </S.BuyBox>
       </S.Content>
