@@ -4,9 +4,10 @@ import { renderWithTheme } from "utils/tests/helpers";
 
 describe("Ribbon", () => {
   it("should render the text correctly", async () => {
-    renderWithTheme(<Ribbon>Best Seller</Ribbon>);
+    const { container } = renderWithTheme(<Ribbon>Best Seller</Ribbon>);
 
     expect(screen.getByText(/Best Seller/gi)).toBeInTheDocument();
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it("should render with primary color", async () => {
