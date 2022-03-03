@@ -53,6 +53,6 @@ describe("BannerSlider", () => {
 
     expect(
       screen.queryByRole("heading", { name: /defy death 2/gi, hidden: true })
-    ).toBeInTheDocument();
+    ).not.toBeInTheDocument();
   });
 });
