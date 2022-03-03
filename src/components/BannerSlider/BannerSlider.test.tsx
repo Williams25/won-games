@@ -55,4 +55,14 @@ describe("BannerSlider", () => {
       screen.queryByRole("heading", { name: /Defy death 2/gi, hidden: true })
     ).not.toBeInTheDocument();
   });
+
+  it("should render with the dots", () => {
+    const { container } = renderWithTheme(<BannerSlider items={items} />);
+
+    expect(container.querySelector(".slick-dots")).toBeInTheDocument();
+
+    expect(container.querySelector(".slick-dots").children).toHaveLength(
+      items.length
+    );
+  });
 });
