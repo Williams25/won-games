@@ -52,7 +52,7 @@ describe("BannerSlider", () => {
     ).toBeInTheDocument();
 
     expect(
-      screen.queryByRole("heading", { name: /defy death 2/gi, hidden: true })
+      screen.queryByRole("heading", { name: /Defy death 2/gi, hidden: true })
     ).not.toBeInTheDocument();
   });
 });
