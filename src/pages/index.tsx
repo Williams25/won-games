@@ -1,7 +1,7 @@
-import { Main } from "components/Main";
+import { Home as HomePage } from "templates/Home";
 
-export default function Home() {
-  return (
-    <Main title="React avançado" description="TypeScript, React, NextJS" />
-  );
-}
+export const Home = () => {
+  return <HomePage />;
+};
+
+export default Home;
