@@ -1,5 +1,6 @@
 import { Meta, Story } from "@storybook/react/types-6-0";
 import { Highlight, HighlightProps } from "./index";
+import item from "./mock";
 
 export default {
   title: "Highlight",
@@ -8,11 +9,7 @@ export default {
     layout: "fullscreen"
   },
   args: {
-    title: "Heading 1",
-    subTitle: "Heading 2",
-    buttonLabel: "Buy now",
-    buttonLink: "/",
-    backgroundImage: "/img/red-dead-img.jpg"
+    ...item
   }
 } as Meta;
 
