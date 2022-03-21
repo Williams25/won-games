@@ -18,7 +18,8 @@
   "lint-staged": {
     "src/**/*": [
       "yarn lint src",
-      "yarn test --findRelatedTests --bail"
+      "yarn test --findRelatedTests --bail",
+      "yarn typecheck"
     ]
   },
   "dependencies": {
